@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>kanban</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/media.css}">
+</head>
+
+<body>
+	<header class="header">
+		<div class="header-container container">
+			<div class="logo">Di-пломчик</div>
+			<ul class="header__menu menu">
+				<li class="btn menu__item dropdown">
+					Список проектов
+          <ul class="dropdown__list">
+						<li class="dropdown__elem" th:each = "project : ${project}">
+							<a class="dropdown__link" th:href = "@{/kanban/{projectId}(projectId=${project.id})}" th:text="${project.title}"></a>
+						</li>
+					</ul>
+        </li>
+				<li class="menu__item">
+					<a class="menu__link" href="/">Главная</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="./kanban.html">Канбан-доска</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="#">Графики</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<main class="container main-container">
+		<div class="tables">
+			<div class="tables__table table">
+				<div class="border-color"></div>
+				<div class="table__content">
+					<div class="table__head">
+						<h2 class="table__title">Новые</h2>
+						<button class="btn">Добавить</button>
+					</div>
+					<ul class="table__list list">
+						<li class="list__item item" th:each = "job_new : ${job_new}">
+							<div class="item__content">
+								<h3 class="item__title" th:text="${job_new.title}"></h3>
+								<p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+									autem sunt non dicta quaerat eos odio distinctio, impedit magnam placeat cum
+									repellendus labor</p>
+								<p class="item__date" th:text="${job_new.dateCreate}"></p>
+							</div>
+
+							<div class="item__buttons">
+								<a class="item__link link_edit" th:href= "@{/job/form}"></a>
+								<a class="item__link link_delete" th:href = "@{/job/delete/{id}(id=${job_new.id})}"></a>
+								<a class="item__link link_next" th:href="@{/job/next/{id}(id=${job_new.id})}"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="tables__table table">
+				<div class="border-color"></div>
+				<div class="table__content">
+					<div class="table__head">
+						<h2 class="table__title">Сделать</h2>
+						<button class="btn">Добавить</button>
+					</div>
+					<ul class="table__list list">
+						<li class="list__item item" th:each = "job_to_do : ${job_to_do}">
+							<div class="item__content">
+								<h3 class="item__title" th:text="${job_to_do.title}"></h3>
+								<p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+									autem sunt non dicta quaerat eos odio distinctio, impedit magnam placeat cum
+									repellendus labor</p>
+								<p class="item__date" th:text="${job_to_do.dateCreate}"></p>
+							</div>
+							<div class="item__buttons">
+								<a class="item__link link_back" th:href="@{/job/back/{id}(id=${job_to_do.id})}"></a>
+								<a class="item__link link_edit" th:href= "@{/job/form}"></a>
+								<a class="item__link link_delete" th:href = "@{/job/delete/{id}(id=${job_to_do.id})}"></a>
+								<a class="item__link link_next" th:href="@{/job/next/{id}(id=${job_to_do.id})}"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="tables__table table">
+				<div class="border-color"></div>
+				<div class="table__content">
+					<div class="table__head">
+						<h2 class="table__title">В процессе</h2>
+						<button class="btn">Добавить</button>
+					</div>
+					<ul class="table__list list">
+						<li class="list__item item" th:each = "job_in_progress : ${job_in_progress}">
+							<div class="item__content">
+								<h3 class="item__title" th:text = "${job_in_progress.title}"></h3>
+								<p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+									autem sunt non dicta quaerat eos odio distinctio, impedit magnam placeat cum
+									repellendus labor</p>
+								<p class="item__date" th:text = "${job_in_progress.dateCreate}"></p>
+							</div>
+							<div class="item__buttons">
+								<a class="item__link link_back" th:href="@{/job/back/{id}(id=${job_in_progress.id})}"></a>
+								<a class="item__link link_edit" th:href= "@{/job/form}"></a>
+								<a class="item__link link_delete" th:href = "@{/job/delete/{id}(id=${job_in_progress.id})}"></a>
+								<a class="item__link link_next" th:href="@{/job/next/{id}(id=${job_in_progress.id})}"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="tables__table table">
+				<div class="border-color"></div>
+				<div class="table__content">
+					<div class="table__head">
+						<h2 class="table__title">Тестирование</h2>
+						<button class="btn">Добавить</button>
+					</div>
+					<ul class="table__list list">
+						<li class="list__item item" th:each = "job_testing : ${job_testing}">
+							<div class="item__content">
+								<h3 class="item__title" th:text = "${job_testing.title}"></h3>
+								<p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+									autem sunt non dicta quaerat eos odio distinctio, impedit magnam placeat cum
+									repellendus labor</p>
+								<p class="item__date" th:text = "${job_testing.dateCreate}"></p>
+							</div>
+							<div class="item__buttons">
+								<a class="item__link link_back" th:href="@{/job/back/{id}(id=${job_testing.id})}"></a>
+								<a class="item__link link_edit" th:href= "@{/job/form}"></a>
+								<a class="item__link link_delete" th:href = "@{/job/delete/{id}(id=${job_testing.id})}"></a>
+								<a class="item__link link_next" th:href="@{/job/next/{id}(id=${job_testing.id})}"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="tables__table table">
+				<div class="border-color"></div>
+				<div class="table__content">
+					<div class="table__head">
+						<h2 class="table__title">Завершенные</h2>
+						<button class="btn">Добавить</button>
+					</div>
+					<ul class="table__list list">
+						<li class="list__item item" th:each = "job_done : ${job_done}">
+							<div class="item__content">
+								<h3 class="item__title" th:text = "${job_done.title}"></h3>
+								<p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+									autem sunt non dicta quaerat eos odio distinctio, impedit magnam placeat cum
+									repellendus labor</p>
+								<p class="item__date" th:text = "${job_done.dateCreate}"></p>
+							</div>
+							<div class="item__buttons">
+								<a class="item__link link_back" th:href="@{/job/back/{id}(id=${job_done.id})}"></a>
+								<a class="item__link link_edit" th:href= "@{/job/form}"></a>
+								<a class="item__link link_delete" th:href = "@{/job/delete/{id}(id=${job_done.id})}"></a>
+								<a class="item__link link_next" th:href="@{/job/next/{id}(id=${job_done.id})}"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</main>
+</body>
+
+</html>

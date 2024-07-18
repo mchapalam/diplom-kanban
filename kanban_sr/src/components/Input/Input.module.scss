@@ -1,0 +1,33 @@
+.label {
+	display: flex;
+	flex-direction: column;
+}
+
+.span {
+	display: flex;
+	font-weight: 500;
+	letter-spacing: -1px;
+}
+
+.input {
+	padding: 8px;
+	background: white;
+	border: 1px solid #d7d7d7;
+	border-radius: 4px;
+	outline: none;
+	transition: border-color .2s ease-in-out;
+
+	&:hover {
+		border-color: rgb(100, 100, 243);
+	}
+
+	&:focus {
+		border-color: rgb(100, 100, 243);
+	}
+}
+
+.error {
+	color: red;
+	font-weight: 500;
+	font-size: 12px;
+}

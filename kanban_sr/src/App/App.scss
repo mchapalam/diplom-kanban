@@ -1,0 +1,65 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Wix Madefor Display', 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.text-container {
+  max-width: 1000px;
+  padding: 32px 32px;
+}
+
+.text-container p {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+
+.btn {
+  cursor: pointer;
+  background: rgb(100, 100, 243);
+  border-radius: 8px;
+  border: 0;
+  padding: 6px 8px;
+  color: white;
+  transition: background .2s,
+              color .2s;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: white;
+  color: rgb(100, 100, 243);
+}
+
+.container {
+  padding: 0 32px;
+  max-width: calc(1440px - 32px * 2);
+  margin: 0 auto;
+}

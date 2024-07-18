@@ -1,0 +1,63 @@
+.table {
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	background-color: aliceblue;
+}
+
+.tableContent {
+	padding: 8px;
+}
+
+.tableHead {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.tableTitle {
+	font-size: 20px;
+}
+
+.borderColor {
+	height: 8px;
+	width: 100%;
+	background-color: red;
+}
+
+.table:nth-child(1) .borderColor {
+	background-color: red;
+}
+
+.table:nth-child(2) .borderColor {
+	background-color: green;
+}
+
+.table:nth-child(3) .borderColor {
+	background-color: blue;
+}
+
+.table:nth-child(4) .borderColor {
+	background-color: yellow;
+}
+
+.table:nth-child(5) .borderColor {
+	background-color: sandybrown;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.emptyTable {
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	padding: 16px;
+	text-align: center;
+	font-size: 20px;
+	margin: 16px;
+}

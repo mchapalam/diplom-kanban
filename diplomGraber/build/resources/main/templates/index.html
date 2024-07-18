@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/media.css}">
+</head>
+
+<body>
+	<header class="header">
+		<div class="header-container container">
+			<div class="logo">Di-пломчик</div>
+			<ul class="header__menu menu">
+				<li class="btn menu__item dropdown">
+					Список проектов
+     			     <ul class="dropdown__list">
+			  	<li class="dropdown__elem" th:each = "project : ${project}">
+				  <a class="dropdown__link" th:href = "@{/kanban/{projectId}(projectId=${project.id})}" th:text="${project.title}"></a>
+			  </li>
+					</ul>
+        </li>
+				<li class="menu__item">
+					<a class="menu__link" href="./index.html">Главная</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="./kanban.html">Канбан-доска</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="#">Графики</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<main class="container main-container">
+		<div class="text-container">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic harum, numquam, blanditiis nemo, delectus minus in a nam dolorem ipsa aliquid sapiente? Quo, minima. Error eos dolorem vitae architecto fugiat?</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, placeat ducimus. Esse, ullam! Dicta pariatur animi incidunt. Voluptates consequuntur ex necessitatibus tempore est? Vel labore, modi animi ipsum veritatis magnam.</p>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste nobis tenetur architecto, illum minima fugit id sint! Sit quia est autem magni quidem, dolore, incidunt nisi, maiores ipsam fugit tempore?</p>
+		</div>
+	</main>
+</body>
+
+</html>

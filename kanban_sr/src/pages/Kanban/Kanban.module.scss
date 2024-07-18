@@ -1,0 +1,94 @@
+.mainContainer {
+	padding: 32px!important;
+	width: 100%;
+}
+
+.tables {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 8px;
+	align-items: flex-start;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.loading {
+	position: relative;
+	margin: 150px auto 0;
+	width: 30px;
+	height: 30px;
+	background: rgb(100, 100, 243);
+	animation: rotate .8s infinite linear;
+
+	&::before {
+		position: absolute;
+		content: '';
+		top: -15px;
+		left: -15px;
+		width: inherit;
+		height: inherit;
+		background: rgb(71, 71, 239);
+		animation: rotate 1s infinite linear;
+	}
+
+	&::after {
+		position: absolute;
+		content: '';
+		top: 15px;
+		left: 15px;
+		width: inherit;
+		height: inherit;
+		background: rgb(141, 141, 232);
+		animation: rotate 1s infinite linear;
+	}
+}
+
+@media (max-width: 1120px) {
+	.tables {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 700px) {
+	.tables {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 500px) {
+	.tables {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+.toTop {
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	width: 50px;
+	height: 50px;
+	background: white url("../../assets/svg/next.svg") no-repeat center center;
+	background-size: 50% 50%;
+	border-radius: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transform: rotate(-90deg);
+	transition: transform	.2s ease-in-out;
+
+	&:hover {
+		transform: rotate(-90deg) scale(1.05);
+	}
+
+	&:active {
+		transform: rotate(-90deg) scale(0.95);
+	}
+
+}
